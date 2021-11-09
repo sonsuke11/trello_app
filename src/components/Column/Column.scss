@@ -4,12 +4,14 @@
   flex: 0 0 auto;
   width: 300px;
   height: calc(100% - $gap);
+
   > * {
     background-color: $list-bg-color;
     color: #333;
     padding: 0 8px;
   }
   header {
+    font-weight: bold;
     padding-left: 15px;
     height: $column-footer-height;
     line-height: $column-footer-height;

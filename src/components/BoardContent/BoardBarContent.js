@@ -3,6 +3,7 @@ import { isEmpty } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import './BoardBarContent.scss'
 import { initialData } from 'actions/initialData'
+import { mapOrder } from 'utils/sorts'
 const BoardBarContent = () => {
   const [board, setBoard] = useState({})
   const [columns, setColumns] = useState([])
@@ -13,10 +14,10 @@ const BoardBarContent = () => {
     )
     if (boardFromDb) {
       setBoard(boardFromDb)
-      setColumns(boardFromDb.columns)
+
+      setColumns(mapOrder(boardFromDb.columns, boardFromDb.columnOrder, 'id'))
     }
   }, [])
-  console.log('board :>> ', board)
   if (isEmpty(board)) {
     return (
       <div className="not-found" style={{ padding: '10px', color: 'white' }}>
@@ -26,11 +27,9 @@ const BoardBarContent = () => {
   }
   return (
     <div className="board-content">
-      <Column />
-      <Column />
-      <Column />
-      <Column />
-      <Column />
+      {columns?.map((column) => (
+        <Column key={column.id} column={column} />
+      ))}
     </div>
   )
 }
