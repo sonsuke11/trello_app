@@ -1,3 +1,4 @@
+import React from 'react'
 import AppBar from 'components/AppBar/AppBar.js'
 import BoardBar from 'components/BoardBar/BoardBar'
 import BoardBarContent from 'components/BoardContent/BoardBarContent'

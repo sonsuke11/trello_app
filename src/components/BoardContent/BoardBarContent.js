@@ -1,4 +1,5 @@
 import Column from 'components/Column/Column'
+import { Container, Draggable } from 'react-smooth-dnd'
 import { isEmpty } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import './BoardBarContent.scss'
@@ -27,6 +28,7 @@ const BoardBarContent = () => {
   }
   return (
     <div className="board-content">
+      
       {columns?.map((column) => (
         <Column key={column.id} column={column} />
       ))}
